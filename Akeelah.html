@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Akeelah 💘</title>
+
+  <style>
+    :root{
+      --pink1:#ff5fa2;
+      --pink2:#ff8fc7;
+      --white:#ffffff;
+      --shadow: 0 20px 60px rgba(0,0,0,.18);
+      --text:#2b2b2b;
+      --hot:#ff2f7f;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      overflow:hidden;
+      background:
+        radial-gradient(1200px 800px at 20% 15%, rgba(255,255,255,.35), transparent 55%),
+        radial-gradient(900px 700px at 80% 10%, rgba(255,255,255,.25), transparent 55%),
+        linear-gradient(135deg, var(--pink1), var(--pink2));
+    }
+
+    body::before{
+      content:"";
+      position:absolute;
+      inset:-40px;
+      background:
+        radial-gradient(circle at 10px 10px, rgba(255,255,255,.10) 2px, transparent 2.5px) 0 0/40px 40px;
+      opacity:.45;
+      pointer-events:none;
+    }
+
+    /* Floating hearts */
+    .hearts{
+      position:absolute; inset:0;
+      pointer-events:none;
+      overflow:hidden;
+      z-index:0;
+    }
+    .heart{
+      position:absolute;
+      width:14px; height:14px;
+      background: rgba(255,255,255,.85);
+      transform: rotate(45deg);
+      border-radius: 3px;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 8px 10px rgba(0,0,0,.12));
+      opacity:.9;
+    }
+    .heart::before,.heart::after{
+      content:"";
+      position:absolute;
+      width:14px; height:14px;
+      background: inherit;
+      border-radius: 50%;
+    }
+    .heart::before{ left:-7px; top:0; }
+    .heart::after{ top:-7px; left:0; }
+
+    @keyframes floatUp{
+      from{ transform: translateY(110vh) rotate(45deg) scale(var(--s)); }
+      to{ transform: translateY(-18vh) rotate(45deg) scale(var(--s)); }
+    }
+
+    /* Floating name "Akeelah" */
+    .name-float-layer{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:0;
+      overflow:hidden;
+    }
+    .name-bubble{
+      position:absolute;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(255,255,255,.8);
+      backdrop-filter: blur(8px);
+      color: var(--hot);
+      font-weight: 800;
+      letter-spacing:.3px;
+      box-shadow: 0 14px 35px rgba(0,0,0,.12);
+      animation: drift linear infinite;
+      opacity:.92;
+      user-select:none;
+      text-shadow: 0 2px 10px rgba(255,47,127,.15);
+    }
+    @keyframes drift{
+      from{ transform: translate(var(--x0), var(--y0)) rotate(-2deg); }
+      to  { transform: translate(var(--x1), var(--y1)) rotate(2deg); }
+    }
+
+    /* Card */
+    .card{
+      position:relative;
+      width:min(720px, 92vw);
+      background: rgba(255,255,255,.92);
+      border: 1px solid rgba(255,255,255,.65);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      padding: 34px 28px 26px;
+      backdrop-filter: blur(10px);
+      overflow:hidden;
+      z-index:2;
+    }
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(450px 220px at 20% 0%, rgba(255,95,162,.18), transparent 60%),
+        radial-gradient(520px 260px at 80% 10%, rgba(255,143,199,.22), transparent 65%);
+      pointer-events:none;
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,95,162,.10);
+      border: 1px solid rgba(255,95,162,.18);
+      font-weight: 700;
+      letter-spacing:.2px;
+      margin-bottom: 14px;
+      position:relative;
+      z-index:1;
+    }
+    .badge .dot{
+      width:10px;height:10px;border-radius:50%;
+      background: var(--pink1);
+      box-shadow: 0 0 0 6px rgba(255,95,162,.15);
+    }
+
+    .center{ text-align:center; position:relative; z-index:1; }
+
+    .big-heart{
+      width: 86px; height: 86px;
+      margin: 6px auto 18px;
+      position:relative;
+      transform: rotate(45deg);
+      background: linear-gradient(135deg, rgba(255,47,127,.95), rgba(255,143,199,.95));
+      border-radius: 18px;
+      box-shadow: 0 18px 35px rgba(255,47,127,.25);
+    }
+    .big-heart::before,.big-heart::after{
+      content:"";
+      position:absolute;
+      width: 86px; height: 86px;
+      border-radius: 50%;
+      background: inherit;
+    }
+    .big-heart::before{ left:-43px; top:0; }
+    .big-heart::after{ top:-43px; left:0; }
+
+    h1{
+      font-size: clamp(28px, 4vw, 44px);
+      line-height:1.05;
+      margin-bottom: 10px;
+      position:relative;
+      z-index:1;
+    }
+    h1 span{
+      background: linear-gradient(135deg, var(--hot), #ff5fa2);
+      -webkit-background-clip: text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .sub{
+      font-size: clamp(14px, 2vw, 18px);
+      opacity:.85;
+      margin-bottom: 12px;
+      position:relative;
+      z-index:1;
+    }
+
+    .warning{
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing:.3px;
+      color: var(--hot);
+      opacity: 0;
+      transform: translateY(-4px);
+      transition: opacity .15s ease, transform .15s ease;
+      min-height: 18px;
+    }
+    .warning.show{
+      opacity: 1;
+      transform: translateY(0px);
+    }
+
+    .row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      align-items:center;
+      justify-content:center;
+      margin-top: 12px;
+      position:relative;
+      z-index:1;
+    }
+
+    button{
+      border:none;
+      cursor:pointer;
+      font-weight:800;
+      letter-spacing:.2px;
+      padding: 14px 18px;
+      min-width: 150px;
+      border-radius: 16px;
+      transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
+      box-shadow: 0 10px 20px rgba(0,0,0,.12);
+      font-size: 16px;
+      user-select:none;
+    }
+    button:active{ transform: translateY(1px) scale(.99); }
+
+    .yes{
+      background: linear-gradient(135deg, #ff2f7f, var(--pink1));
+      color:white;
+    }
+    .yes:hover{ transform: translateY(-1px) scale(1.02); }
+
+    .no{
+      background: white;
+      color:#ff2f7f;
+      border: 2px solid rgba(255,47,127,.35);
+      box-shadow: 0 10px 18px rgba(255,47,127,.18);
+      position:relative;
+    }
+    .no:hover{ transform: translateY(-1px) scale(1.02); }
+
+    .message{
+      margin-top: 16px;
+      text-align:center;
+      font-size: 16px;
+      font-weight: 750;
+      opacity: .95;
+      min-height: 24px;
+      position:relative;
+      z-index:1;
+    }
+
+    .footer{
+      margin-top: 22px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+      opacity:.82;
+      font-size: 13px;
+      position:relative;
+      z-index:1;
+    }
+    .pill{
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,95,162,.10);
+      border: 1px solid rgba(255,95,162,.18);
+      font-weight:700;
+    }
+
+    /* Sparkles/confetti dots */
+    .sparkle{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      opacity:0;
+      transition: opacity .2s ease;
+      z-index:3;
+    }
+    .sparkle.on{ opacity:1; }
+    .spark{
+      position:absolute;
+      width:7px;height:7px;
+      border-radius:50%;
+      background: rgba(255,47,127,.85);
+      animation: pop .9s ease forwards;
+      box-shadow: 0 8px 20px rgba(255,47,127,.18);
+    }
+    @keyframes pop{
+      0%{ transform: translate(0,0) scale(.6); opacity:0; }
+      20%{ opacity:1; }
+      100%{ transform: translate(var(--dx), var(--dy)) scale(1); opacity:0; }
+    }
+
+    /* Balloon pop layer */
+    .balloons{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:4;
+    }
+    .balloon{
+      position:absolute;
+      width: 38px;
+      height: 48px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 25%, rgba(255,255,255,.55), rgba(255,255,255,0) 35%),
+                  linear-gradient(180deg, rgba(255,255,255,.15), rgba(0,0,0,.05));
+      box-shadow: 0 18px 30px rgba(0,0,0,.12);
+      animation: rise 1.2s ease forwards;
+      transform: translateY(20px) scale(.9);
+      opacity: 0;
+      border: 1px solid rgba(255,255,255,.55);
+    }
+    .balloon::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:-10px;
+      width:2px;
+      height:18px;
+      background: rgba(255,255,255,.75);
+      transform: translateX(-50%);
+      border-radius:2px;
+      opacity:.9;
+    }
+
+    @keyframes rise{
+      0%{ opacity:0; transform: translateY(30px) scale(.85); }
+      15%{ opacity:1; }
+      70%{ opacity:1; transform: translateY(-70px) scale(1); }
+      100%{ opacity:0; transform: translateY(-120px) scale(1.05); }
+    }
+
+    /* Pop burst */
+    .pop{
+      position:absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.95);
+      animation: popBurst .6s ease forwards;
+      box-shadow: 0 10px 22px rgba(0,0,0,.12);
+    }
+    @keyframes popBurst{
+      0%{ transform: scale(.6); opacity:0; }
+      20%{ opacity:1; }
+      100%{ transform: translate(var(--dx), var(--dy)) scale(1.2); opacity:0; }
+    }
+
+    @media (max-width:420px){
+      button{ min-width: 140px; }
+      .footer{ justify-content:center; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="name-float-layer" id="nameLayer"></div>
+
+  <main class="card" aria-live="polite">
+    <div class="badge">
+      <span class="dot"></span>
+      <span>Valentine’s Surprise 💌</span>
+    </div>
+
+    <div class="center">
+      <div class="big-heart" aria-hidden="true"></div>
+
+      <h1>Will you be my Valentine, <span>Akeelah</span>?</h1>
+      <p class="sub">I adore you my love and I made this little page just for you. 💖</p>
+
+      <div class="warning" id="warningText">ARE YOU SURE THIS A DECISION U WANT MAKE</div>
+
+      <div class="row">
+        <button class="yes" id="yesBtn">Yes 💘</button>
+        <button class="no" id="noBtn">No 🙈</button>
+      </div>
+
+      <div class="message" id="message"></div>
+
+      <div class="footer">
+        <span class="pill">Made with love ✨</span>
+        <span class="pill" id="datePill"></span>
+      </div>
+    </div>
+
+    <div class="sparkle" id="sparkle"></div>
+    <div class="balloons" id="balloons"></div>
+  </main>
+
+  <script>
+    // --- Date pill ---
+    const datePill = document.getElementById("datePill");
+    const now = new Date();
+    datePill.textContent = now.toLocaleDateString(undefined, { weekday:"long", month:"long", day:"numeric" });
+
+    // --- Floating hearts ---
+    const heartsWrap = document.getElementById("hearts");
+    const HEARTS = 24;
+    for (let i = 0; i < HEARTS; i++){
+      const h = document.createElement("div");
+      h.className = "heart";
+      h.style.left = (Math.random() * 100) + "vw";
+      const dur = 6 + Math.random() * 8;     // 6-14s
+      const delay = -Math.random() * dur;
+      const scale = (0.6 + Math.random() * 1.4).toFixed(2);
+      h.style.animationDuration = dur + "s";
+      h.style.animationDelay = delay + "s";
+      h.style.setProperty("--s", scale);
+      h.style.opacity = (0.55 + Math.random() * 0.4).toFixed(2);
+      heartsWrap.appendChild(h);
+    }
+
+    // --- Floating "Akeelah" bubbles ---
+    const nameLayer = document.getElementById("nameLayer");
+    const NAME_BUBBLES = 8;
+
+    function addNameBubble(){
+      const b = document.createElement("div");
+      b.className = "name-bubble";
+      b.textContent = "Akeelah";
+
+      // Start/end positions (random) for drift animation
+      const x0 = (Math.random() * 110 - 5).toFixed(1) + "vw";
+      const y0 = (Math.random() * 110 - 5).toFixed(1) + "vh";
+      const x1 = (Math.random() * 110 - 5).toFixed(1) + "vw";
+      const y1 = (Math.random() * 110 - 5).toFixed(1) + "vh";
+
+      const dur = (10 + Math.random() * 10).toFixed(1) + "s";
+      b.style.setProperty("--x0", x0);
+      b.style.setProperty("--y0", y0);
+      b.style.setProperty("--x1", x1);
+      b.style.setProperty("--y1", y1);
+      b.style.animationDuration = dur;
+
+      // random size
+      const scale = 0.9 + Math.random() * 0.5;
+      b.style.transform = `scale(${scale})`;
+
+      nameLayer.appendChild(b);
+
+      // After each drift, reset to new path
+      b.addEventListener("animationiteration", () => {
+        b.style.setProperty("--x0", (Math.random() * 110 - 5).toFixed(1) + "vw");
+        b.style.setProperty("--y0", (Math.random() * 110 - 5).toFixed(1) + "vh");
+        b.style.setProperty("--x1", (Math.random() * 110 - 5).toFixed(1) + "vw");
+        b.style.setProperty("--y1", (Math.random() * 110 - 5).toFixed(1) + "vh");
+        b.style.animationDuration = (10 + Math.random() * 10).toFixed(1) + "s";
+      });
+    }
+
+    for(let i=0;i<NAME_BUBBLES;i++) addNameBubble();
+
+    // --- Buttons ---
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const message = document.getElementById("message");
+    const sparkle = document.getElementById("sparkle");
+    const balloonsLayer = document.getElementById("balloons");
+    const warningText = document.getElementById("warningText");
+
+    let noCount = 0;
+
+    function burstSparkles(){
+      sparkle.innerHTML = "";
+      sparkle.classList.add("on");
+
+      const rect = document.querySelector(".card").getBoundingClientRect();
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      for (let i = 0; i < 28; i++){
+        const s = document.createElement("div");
+        s.className = "spark";
+        const angle = Math.random() * Math.PI * 2;
+        const radius = 40 + Math.random() * 150;
+        const dx = Math.cos(angle) * radius;
+        const dy = Math.sin(angle) * radius;
+
+        s.style.left = (centerX + (Math.random()*30 - 15)) + "px";
+        s.style.top  = (centerY + (Math.random()*20 - 10)) + "px";
+        s.style.setProperty("--dx", dx.toFixed(1) + "px");
+        s.style.setProperty("--dy", dy.toFixed(1) + "px");
+        sparkle.appendChild(s);
+      }
+
+      setTimeout(() => sparkle.classList.remove("on"), 950);
+    }
+
+    function balloonPop(){
+      // Create balloons + pop bursts
+      const card = document.querySelector(".card");
+      const rect = card.getBoundingClientRect();
+
+      // balloons
+      for(let i=0;i<10;i++){
+        const balloon = document.createElement("div");
+        balloon.className = "balloon";
+
+        // random positions inside card
+        const x = 40 + Math.random() * (rect.width - 80);
+        const y = rect.height - 80 + Math.random() * 30;
+
+        balloon.style.left = x + "px";
+        balloon.style.top  = y + "px";
+
+        // color variation using hue rotate
+        const hue = (Math.random()*40 - 20); // slight variety
+        balloon.style.filter = `hue-rotate(${hue}deg)`;
+
+        balloonsLayer.appendChild(balloon);
+
+        // create pop bursts around balloon near the end
+        setTimeout(() => {
+          for(let j=0;j<8;j++){
+            const p = document.createElement("div");
+            p.className = "pop";
+
+            p.style.left = (x + 18) + "px";
+            p.style.top  = (y - 10) + "px";
+
+            const ang = Math.random()*Math.PI*2;
+            const rad = 20 + Math.random()*70;
+            p.style.setProperty("--dx", (Math.cos(ang)*rad).toFixed(1) + "px");
+            p.style.setProperty("--dy", (Math.sin(ang)*rad).toFixed(1) + "px");
+            p.style.background = Math.random() > 0.5 ? "rgba(255,255,255,.95)" : "rgba(255,47,127,.85)";
+            balloonsLayer.appendChild(p);
+
+            setTimeout(()=> p.remove(), 650);
+          }
+        }, 750);
+
+        // cleanup
+        setTimeout(() => balloon.remove(), 1400);
+      }
+    }
+
+    yesBtn.addEventListener("click", () => {
+      message.textContent = "YAY!! 😭💖 I’m so happy! You just made my day, Akeelah 🌹";
+      burstSparkles();
+      balloonPop();
+      yesBtn.disabled = true;
+      noBtn.disabled = true;
+      yesBtn.style.filter = "brightness(1.05)";
+    });
+
+    function moveNoButton(){
+      const card = document.querySelector(".card");
+      const cardRect = card.getBoundingClientRect();
+      const btnRect = noBtn.getBoundingClientRect();
+
+      const padding = 18;
+      const maxX = cardRect.width - btnRect.width - padding;
+      const maxY = cardRect.height - btnRect.height - padding;
+
+      const x = Math.max(padding, Math.random() * maxX);
+      const y = Math.max(padding, Math.random() * maxY);
+
+      noBtn.style.position = "absolute";
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+
+    // Hover over NO: show warning + it can still "run"
+    noBtn.addEventListener("mouseenter", () => {
+      warningText.classList.add("show");
+      noCount++;
+      moveNoButton();
+      if (noCount === 2) message.textContent = "Ayeeee 😭 just press Yes 💗";
+      if (noCount === 4) message.textContent = "Okay okay… you’re tough 😂";
+    });
+
+    noBtn.addEventListener("mouseleave", () => {
+      warningText.classList.remove("show");
+    });
+
+    noBtn.addEventListener("click", () => {
+      noCount++;
+      moveNoButton();
+      message.textContent = "Nice try 😂";
+    });
+  </script>
+</body>
+</html>
